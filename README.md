@@ -2,6 +2,9 @@
 
 pitrs_taxik is a comprehensive and immersive taxi service system built for ESX Legacy framework. With an intuitive NPC-based interface and realistic taxi mechanics, it provides players with a seamless transportation experience across the map — complete with AI drivers, customizable destinations, and smooth ride dynamics.
 
+<img width="906" height="669" alt="image" src="https://github.com/user-attachments/assets/15ddb00e-adff-4661-9d41-5c732ed020eb" />
+<img width="828" height="436" alt="image" src="https://github.com/user-attachments/assets/e98754c4-847c-4bd1-86c2-fb9ae57eaa0e" />
+<img width="722" height="572" alt="image" src="https://github.com/user-attachments/assets/e62ae43e-a13b-46b2-b873-78cb435aceb2" />
 
 
 ### ✨ Features
