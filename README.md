@@ -97,5 +97,5 @@ Ready for additional features like fare system or job integration
 |**Code is accessible**|Yes|
 |**Subscription-based**|No|
 |**Lines (approximately)**|~214|
-|**Requirements**|ox_lib,ox_target|
+|**Requirements**|esx,qb-core,ox_lib,ox_target|
 |**Support**|Yes|
