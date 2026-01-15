@@ -21,11 +21,11 @@ Config.TaxiNPCs = {
 }
 
 -- Blip
-Config.ShowBlip = true  -- true/false
+Config.ShowBlip = false  -- true/false
 Config.BlipSprite = 198 -- Sprite
 Config.BlipColor = 5 -- Yellow 
 Config.BlipScale = 0.6 -- Scale
-Config.BlipName = "<font face='Fire Sans'>Taxi Služba" -- Blip name
+Config.BlipName = "<font face='Fire Sans'>Taxi Service" -- Blip name
 
 -- Taxi vehicle
 Config.TaxiVehicle = 'taxi' -- Vehicle model
@@ -39,7 +39,7 @@ Config.Destinations = {
         spawnHeading = 267.9250
     },
     {
-        label = "Banka Náměstí",
+        label = "Central Bank",
         coords = vector4(143.1421, -1026.4192, 29.2222, 251.4734), -- x, y, z, heading
         spawnCoords = vector3(-94.6049, -1117.6069, 25.7865),
         spawnHeading = 172.8256
@@ -60,4 +60,18 @@ Config.DrivingSpeed = 12.0
 Config.DrivingStyle = 524419 
 -- DespawnDelay
 Config.DespawnDelay = 3000
+
+-- Messages
+Config.Messages = {
+    SpawningNPC = '^2[TAXI]^7 Spawning NPC...',
+    LoadingModel = '^2[TAXI]^7 Loading model: ',
+    CreatingNPCAt = '^2[TAXI]^7 Creating NPC at: ',
+    NPCCreated = '^2[TAXI]^7 NPC created with ID: ',
+    FailedCreateNPC = '^1[TAXI ERROR]^7 Failed to create NPC!',
+    TaxiService = 'Taxi Service',
+    FreeTransport = 'Free transport',
+    AlreadyInTaxi = 'You are already in a taxi!',
+    GoingTo = 'We are going to ',
+    ArrivedAtDestination = 'We have arrived at the destination!'
+}
 

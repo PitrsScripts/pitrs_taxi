@@ -15,18 +15,18 @@ end)
 
 CreateThread(function()
     Wait(1000) 
-    if Config.Debug then print('^2[TAXI]^7 Spawnuji NPC...') end
+    if Config.Debug then print(Config.Messages.SpawningNPC) end
     for i, coords in ipairs(Config.TaxiNPCs) do
-        if Config.Debug then print('^2[TAXI]^7 Načítám model: ' .. Config.NPCModel) end
+        if Config.Debug then print(Config.Messages.LoadingModel .. Config.NPCModel) end
         RequestModel(GetHashKey(Config.NPCModel))
         while not HasModelLoaded(GetHashKey(Config.NPCModel)) do
             Wait(10)
         end
-        if Config.Debug then print('^2[TAXI]^7 Vytvářím NPC na: ' .. tostring(coords)) end
+        if Config.Debug then print(Config.Messages.CreatingNPCAt .. tostring(coords)) end
         local npc = CreatePed(4, GetHashKey(Config.NPCModel), coords.x, coords.y, coords.z - 1.0, coords.w, false, true)
         
         if DoesEntityExist(npc) then
-            if Config.Debug then print('^2[TAXI]^7 NPC vytvořen s ID: ' .. npc) end
+            if Config.Debug then print(Config.Messages.NPCCreated .. npc) end
             SetEntityInvincible(npc, true)
             SetBlockingOfNonTemporaryEvents(npc, true)
             FreezeEntityPosition(npc, true)
@@ -35,7 +35,7 @@ CreateThread(function()
                 exports.ox_target:addLocalEntity(npc, {
                     {
                         name = 'taxi_service_' .. i,
-                        label = 'Taxi Služba',
+                        label = Config.Messages.TaxiService,
                         icon = 'fas fa-taxi',
                         onSelect = function()
                             openTaxiMenu()
@@ -49,7 +49,7 @@ CreateThread(function()
                             type = "client",
                             event = "taxi:openMenu",
                             icon = "fas fa-taxi",
-                            label = "Taxi Služba",
+                            label = Config.Messages.TaxiService,
                         },
                     },
                     distance = 2.0
@@ -69,7 +69,7 @@ CreateThread(function()
                 EndTextCommandSetBlipName(blip)
             end
         else
-            if Config.Debug then print('^1[TAXI ERROR]^7 Nepodařilo se vytvořit NPC!') end
+            if Config.Debug then print(Config.Messages.FailedCreateNPC) end
         end
     end
 end)
@@ -84,7 +84,7 @@ function openTaxiMenu()
     for i, dest in ipairs(Config.Destinations) do
         table.insert(options, {
             title = dest.label,
-            description = 'Přeprava zdarma',
+            description = Config.Messages.FreeTransport,
             icon = 'taxi',
             onSelect = function()
                 callTaxi(dest)
@@ -94,7 +94,7 @@ function openTaxiMenu()
     
     lib.registerContext({
         id = 'taxi_menu',
-        title = 'Taxi Služba',
+        title = Config.Messages.TaxiService,
         options = options
     })
     
@@ -106,7 +106,7 @@ function callTaxi(destination)
     if isInTaxi then
         lib.notify({
             title = 'Taxi',
-            description = 'Již jsi v taxi!',
+            description = Config.Messages.AlreadyInTaxi,
             type = 'error'
         })
         return
@@ -142,7 +142,7 @@ function callTaxi(destination)
 
     lib.notify({
         title = 'Taxi',
-        description = 'Jedeme na ' .. destination.label,
+        description = Config.Messages.GoingTo .. destination.label,
         type = 'inform'
     })
 
@@ -171,7 +171,7 @@ function callTaxi(destination)
             if parked and IsVehicleStopped(currentTaxi) then
                 lib.notify({
                     title = 'Taxi',
-                    description = 'Dorazili jsme na místo!',
+                    description = Config.Messages.ArrivedAtDestination,
                     type = 'success'
                 })
 
